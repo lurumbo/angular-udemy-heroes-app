@@ -1,10 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
-
+// Routes
 import { appRoutes } from './app.routes';
 
+// Services
+import { HeroesService } from './services/heroes.service';
+
+// Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
@@ -23,7 +27,9 @@ import { HeroesComponent } from './components/heroes/heroes.component';
     BrowserModule,
     RouterModule.forRoot(appRoutes, {enableTracing: false})
   ],
-  providers: [],
+  providers: [
+    HeroesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

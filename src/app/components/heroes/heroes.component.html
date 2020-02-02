@@ -2,6 +2,6 @@
     <h1>Marvel & DC Heroes</h1>
     <hr>
     <div class="card-columns">
-        <app-hero-card [hero]="hero" [heroName]="hero.name" *ngFor="let hero of heroes;"></app-hero-card>
+        <app-hero-card (selectedHero)="goToHeroDetail($event)" [hero]="hero" [heroName]="hero.name" *ngFor="let hero of heroes;"></app-hero-card>
     </div>
 </div>

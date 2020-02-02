@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,15 +12,22 @@ export class HeroCardComponent implements OnInit {
   @Input() hero:any = {};
   @Input() heroName:string = '';
 
-  constructor(private router:Router) { }
+  // El decorator Output me permite disparar un evento desde un componente hijo.
+  // Para esto seteamos el nombre del evento que queremos que el padre este escuchando.
+  // El contenido entre <> es el tipo de dato que va a emitir esta evento.
+  // Se debe inicializar en  el constructor.
+  @Output() selectedHero:EventEmitter<string>;
+
+  constructor(private router:Router) { 
+    this.selectedHero = new EventEmitter();
+  }
 
   ngOnInit() {
   }
 
   goToHeroDetail() {
     const parsedName = this.heroName.toLocaleLowerCase();
-    console.log('the selected hero is ' + parsedName)
-    this.router.navigate(['/heroes', parsedName]);
+    this.selectedHero.emit(parsedName);
   }
 
 }

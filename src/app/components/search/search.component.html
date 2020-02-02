@@ -2,7 +2,7 @@
     <h1>Search Result for: {{ searchedHero }}</h1>
     <hr>
     <div class="card-columns">
-        <app-hero-card [hero]="hero" [heroName]="hero.name" *ngFor="let hero of matchedHeroes"></app-hero-card>
+        <app-hero-card (selectedHero)="goToHeroDetail($event)" [hero]="hero" [heroName]="hero.name" *ngFor="let hero of matchedHeroes"></app-hero-card>
     </div>
     <div class="row" *ngIf="matchedHeroes.length === 0">
         <div class="col-md-12">

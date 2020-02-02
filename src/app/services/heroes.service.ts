@@ -4,6 +4,8 @@ import { Hero } from './../components/heroes/hero.interface';
 @Injectable()
 export class HeroesService {
 
+    public searchedHero:string = '';
+
     private heroes:Hero[] = [
         {
           name: "Aquaman",
@@ -62,6 +64,22 @@ export class HeroesService {
 
     getHeroes():Hero[] {
         return this.heroes;
+    }
+
+    getHero(id:string) {
+      return this.heroes[id];
+    }
+
+    getHeroByName(name:string):Hero {
+      return this.heroes.filter(hero => hero.name.toLocaleLowerCase() === name.toLocaleLowerCase())[0];
+    }
+
+    searchHero(text:string) {
+      let findedHeroes:Hero[] = [];
+      let searchedText = text.toLocaleLowerCase();
+      console.log('searched: ', searchedText);
+      findedHeroes = this.heroes.filter(hero => hero.name.toLocaleLowerCase().indexOf(searchedText) >= 0);
+      return findedHeroes;
     }
 
 }

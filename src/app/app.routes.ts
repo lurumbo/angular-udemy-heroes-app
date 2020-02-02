@@ -4,16 +4,17 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
-
+import { HeroComponent } from './components/hero/hero.component';
+import { SearchComponent } from './components/search/search.component';
 //import { PageNotFoundComponent } from './';
 
 export const appRoutes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'heroes', component: HeroesComponent },
     { path: 'about', component: AboutComponent },
-    //{ path: 'path4', component: Name4Component },
+    { path: 'heroes/:name', component: HeroComponent },
+    { path: 'heroes', component: HeroesComponent },
+    { path: 'search/:term', component: SearchComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' },
-
     //{ path: 'path/:routeParam', component: MyComponent },
     //{ path: 'staticPath', component: ... },
     //{ path: '**', component: ... },

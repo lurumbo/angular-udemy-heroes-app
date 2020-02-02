@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-hero-card',
-  templateUrl: './hero-card.component.html',
-  styleUrls: ['./hero-card.component.css']
+  templateUrl: './hero-card.component.html'
 })
 export class HeroCardComponent implements OnInit {
 

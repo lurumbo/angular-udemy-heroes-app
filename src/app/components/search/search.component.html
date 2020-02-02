@@ -1,8 +1,8 @@
 <div class="animated fadeIn">
-    <h1>Marvel & DC Heroes</h1>
+    <h1>Search Result for: {{ searchedHero }}</h1>
     <hr>
     <div class="card-columns">
-        <div class="card animated fadeIn fast" *ngFor="let hero of heroes; let i = index">
+        <div class="card animated fadeIn fast" *ngFor="let hero of matchedHeroes; let i = index">
             <img class="card-img-top" [src]="hero.img" [alt]="hero.name">
             <div class="card-body">
                 <h5 class="card-title"> {{ hero.name }}</h5>

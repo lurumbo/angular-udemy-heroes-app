@@ -12,8 +12,8 @@ export class HeroComponent implements OnInit {
 
   constructor(private activatedRoute:ActivatedRoute, private _heroService:HeroesService) { 
     this.activatedRoute.params.subscribe(params => {
-      console.log(params['id']);
-      this.hero = this._heroService.getHero(params['id']);
+      console.log(params['name']);
+      this.hero = this._heroService.getHeroByName(params['name']);
       console.log('the selected hero', this.hero)
     })
   }

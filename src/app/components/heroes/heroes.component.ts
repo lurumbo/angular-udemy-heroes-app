@@ -21,9 +21,9 @@ export class HeroesComponent implements OnInit {
     console.log(this.heroes);
   }
 
-  goToHeroDetail(index:number) {
-    console.log('the selected hero is ' + index)
-    this.router.navigate(['/heroes', index]);
+  goToHeroDetail(name:string) {
+    console.log('the selected hero is ' + name.toLocaleLowerCase())
+    this.router.navigate(['/heroes', name.toLocaleLowerCase()]);
   }
 
 }

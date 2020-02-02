@@ -9,10 +9,12 @@ import { HeroesService } from './../../services/heroes.service';
 export class HeroComponent implements OnInit {
 
   hero:any = {};
+  searchedHeroName:string;
 
   constructor(private activatedRoute:ActivatedRoute, private _heroService:HeroesService) { 
     this.activatedRoute.params.subscribe(params => {
       console.log(params['name']);
+      this.searchedHeroName = params['name'];
       this.hero = this._heroService.getHeroByName(params['name']);
       console.log('the selected hero', this.hero)
     })

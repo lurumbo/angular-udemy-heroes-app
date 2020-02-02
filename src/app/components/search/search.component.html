@@ -19,4 +19,11 @@
             </div>
         </div>
     </div>
+    <div class="row" *ngIf="matchedHeroes.length === 0">
+        <div class="col-md-12">
+            <div class="alert alert-info" role="alert">
+                No results found for <b>{{ searchedHero }}</b> search
+            </div>
+        </div>
+    </div>
 </div>

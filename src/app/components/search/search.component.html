@@ -2,22 +2,7 @@
     <h1>Search Result for: {{ searchedHero }}</h1>
     <hr>
     <div class="card-columns">
-        <div class="card animated fadeIn fast" *ngFor="let hero of matchedHeroes; let i = index">
-            <img class="card-img-top" [src]="hero.img" [alt]="hero.name">
-            <div class="card-body">
-                <h5 class="card-title"> {{ hero.name }}</h5>
-                <p class="card-text"> {{ hero.bio }}</p>
-                <p class="card-text"><small class="text-muted"> {{ hero.origin | date:'longDate' }}</small></p>
-                <!-- Navigate to detail buttons -->
-                <button type="button" class="btn btn-outline-primary btn-block" (click)="goToHeroDetail(hero.name)">
-                    See more
-                </button>
-                <!-- Navigate to detail with links -->
-                <!-- <a type="button" class="btn btn-outline-primary btn-block" [routerLink]="[i]">
-                    See more
-                </a> -->
-            </div>
-        </div>
+        <app-hero-card [hero]="hero" [heroName]="hero.name" *ngFor="let hero of matchedHeroes"></app-hero-card>
     </div>
     <div class="row" *ngIf="matchedHeroes.length === 0">
         <div class="col-md-12">
